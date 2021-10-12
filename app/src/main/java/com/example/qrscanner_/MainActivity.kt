@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"scanned: ${result.contents} format: ${result.formatName}",Toast.LENGTH_LONG).show()
                 //화면전환 test
                 val intent = Intent(this,SubActivity::class.java)
-                intent.putExtra("testurl",result.contents.toString())
+                intent.putExtra("testurl",result.contents.toString()) //testurl이라는 key에 qr코드에서 읽은 url을 삽입.
                 startActivity(intent)
             }else{
                 Toast.makeText(this,"Cancelled",Toast.LENGTH_LONG).show()
