@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.5796875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/activity_my_barcode_reader.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sub.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/custom_barcode_scanner.xml" value="0.375" />
       </map>
     </option>

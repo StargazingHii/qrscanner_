@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Qrscanner_">
         <activity
+            android:name=".SubActivity"
+            android:exported="true" />
+        <activity
             android:name=".MyBarcodeReaderActivity"
             android:exported="true" />
         <activity

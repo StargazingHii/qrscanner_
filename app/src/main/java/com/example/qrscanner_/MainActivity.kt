@@ -45,7 +45,10 @@ class MainActivity : AppCompatActivity() {
             //스캔 결과 참일 경우 실
             if(result.contents != null){ //contents에 결과가 있다.
                 Toast.makeText(this,"scanned: ${result.contents} format: ${result.formatName}",Toast.LENGTH_LONG).show()
-
+                //화면전환 test
+                val intent = Intent(this,SubActivity::class.java)
+                intent.putExtra("testurl",result.contents.toString())
+                startActivity(intent)
             }else{
                 Toast.makeText(this,"Cancelled",Toast.LENGTH_LONG).show()
             }
