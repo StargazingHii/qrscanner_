@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.zxing.integration.android.IntentIntegrator
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"scanned: ${result.contents} format: ${result.formatName}",Toast.LENGTH_LONG).show()
                 //화면전환 test
                 val intent = Intent(this,SubActivity::class.java)
-                intent.putExtra("testurl",result.contents.toString()) //testurl이라는 key에 qr코드에서 읽은 url을 삽입.
+                //intent.putExtra("testurl",result.contents.toString()) //testurl이라는 key에 qr코드에서 읽은 url을 삽입.
                 startActivity(intent)
             }else{
                 Toast.makeText(this,"Cancelled",Toast.LENGTH_LONG).show()

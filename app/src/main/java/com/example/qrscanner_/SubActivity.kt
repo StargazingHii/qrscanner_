@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.activity_sub.*
 
 import android.util.Log
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
@@ -22,9 +23,37 @@ class SubActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub)
+        print("hi")
+        Log.d("MainActivity","result :")
 
+        val menuList = arrayListOf(
+            Menus(R.drawable.rainy,"아메리카노",4000),
+            Menus(R.drawable.rainy,"카페라떼",5000)
+        )
+        rv_menuList.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        rv_menuList.setHasFixedSize(true)
+        rv_menuList.adapter = MenuAdapter(menuList)
+
+        // listView 생성 -> 나중에 아래로 들어갈것.!
+        /*
+        val menu_list = arrayListOf(
+            Menus(R.drawable.rainy,"아메리카노",4000), //test데이터 -> 서버에서 받아서 사용할것.
+            Menus(R.drawable.sunny,"카페라떼",40001),
+            Menus(R.drawable.sunny,"바닐라라떼",40002),
+            Menus(R.drawable.sunny,"카페모카",40003),
+            Menus(R.drawable.sunny,"아이스아메리카노",40004),
+        )
+        */
+
+        //rv_menuList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+        //rv_menuList.setHasFixedSize(true)
+        //rv_menuList.adapter = MenuAdapter(menu_list)
+       //
+
+
+        /*
         if(intent.hasExtra("testurl")){
-            test_Lbl.text = intent.getStringExtra("testurl")
+            //test_Lbl.text = intent.getStringExtra("testurl")
 
             //api test start
             val url = "http://api.openweathermap.org/"
@@ -48,12 +77,19 @@ class SubActivity : AppCompatActivity() {
                     if(response.code() == 200){
                         val weatherResponse = response.body()
                         Log.d("MainActivity", "result: " + weatherResponse.toString())
-                        weather_test.text = weatherResponse!!.weather[0].main
+                        //weather_test.text = weatherResponse!!.weather[0].main
+                        //weather_test2.text = weatherResponse!!.weather[0].description
+                        //weather_test3.text = weatherResponse!!.main?.temp.toString()
+                       // weather_test4.text = weatherResponse!!.main?.humidity.toString()
+                        //weather_test5.text = weatherResponse!!.main?.pressure.toString()
                     }
                 }
             })
         }
-
+        */
+        //rv_menuList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+        //rv_menuList.setHasFixedSize(true)
+       // rv_menuList.adapter = MenuAdapter(menu_list)
     }
 }
 
@@ -67,6 +103,7 @@ interface WeatherService{
 
 class WeatherResponse(){
     @SerializedName("weather") var weather = ArrayList<Weather>()
+    @SerializedName("main") var main: Main? = null
 }
 
 class Weather {
@@ -74,4 +111,18 @@ class Weather {
     @SerializedName("main") var main : String? = null
     @SerializedName("description") var description: String? = null
     @SerializedName("icon") var icon : String? = null
+}
+
+class Main {
+    @SerializedName("temp")
+    var temp: Float = 0.toFloat()
+    @SerializedName("humidity")
+    var humidity: Float = 0.toFloat()
+    @SerializedName("pressure")
+    var pressure: Float = 0.toFloat()
+    @SerializedName("temp_min")
+    var temp_min: Float = 0.toFloat()
+    @SerializedName("temp_max")
+    var temp_max: Float = 0.toFloat()
+
 }

@@ -6,23 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".SubActivity">
 
-    <TextView
-        android:id="@+id/test_Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="제발!"
-        android:textSize="30dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menuList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/weather_test"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="날씨 정보 표시"
-        app:layout_constraintBottom_toTopOf="@+id/test_Lbl"
+        android:layout_marginStart="99dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginBottom="13dp"
+        android:text="아지랑이"
+        app:layout_constraintBottom_toTopOf="@+id/rv_menuList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
