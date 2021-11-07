@@ -17,19 +17,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-
+//!!!!!!!!!!!!!!!API적용할것!!!!!!!!!!!!!!!!!!!!!
+//밑의 코드 Test Case를 직접 넣어서 사용함.
 
 class SubActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub)
-        print("hi")
-        Log.d("MainActivity","result :")
 
         val menuList = arrayListOf(
             Menus(R.drawable.rainy,"아메리카노",4000),
             Menus(R.drawable.rainy,"카페라떼",5000)
         )
+
         rv_menuList.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         rv_menuList.setHasFixedSize(true)
         rv_menuList.adapter = MenuAdapter(menuList)
@@ -126,3 +126,17 @@ class Main {
     var temp_max: Float = 0.toFloat()
 
 }
+
+//qrder menu class
+class QrderResponse(){
+    @SerializedName("menu") var menu = ArrayList<qrder_menu>()
+}
+
+class qrder_menu {
+    @SerializedName("placeId") var placeId: Int = 0
+    @SerializedName("menuId") var menuId : Int = 0
+    @SerializedName("menu") var menu: String? = null
+    @SerializedName("price") var price : Int = 0
+}
+
+
